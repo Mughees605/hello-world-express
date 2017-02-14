@@ -40,8 +40,8 @@ app.post("/post",function(req,res,next){
 app.get('/post', function (req, res) {
     
         studentModel.find({name:"Mughees"}, function (err, docs) {
-            res.send(docs[0]);
-            console.log(docs[0]);
+            res.send(docs);
+            console.log(docs);
         });
     
 });
