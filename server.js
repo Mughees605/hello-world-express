@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 
 
 var app = express();
-var port = (process.env.PORT || 3000);
+var port = (process.env.PORT || 4000);
 
 app.use(bodyParser.json());
 
@@ -40,8 +40,8 @@ app.post("/post",function(req,res,next){
 app.get('/post', function (req, res) {
     
         studentModel.find({name:"Mughees"}, function (err, docs) {
-            res.send(docs[0].class);
-            console.log(docs[0].class);
+            res.send(docs[0]);
+            console.log(docs[0]);
         });
     
 });
