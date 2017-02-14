@@ -16,7 +16,7 @@ var studentSchema = new mongoose.Schema({
 
 var studentModel = mongoose.model("student",studentSchema);
 
-app.post("/add",function(req,res,next){
+app.post("/post",function(req,res,next){
 
     var newStudent = new studentModel({
         name : req.body.name,
@@ -37,24 +37,29 @@ app.post("/add",function(req,res,next){
     })
 })
 
-
-app.get("/",function(req,res,next){
-
-   // res.send("hello world")
-   studentModel.find(function(err,doc){
-   if(err){
-       res.send(err);
-   }
-   else{
-       res.send(doc);
-   }
-   })
-       
+app.get('/post', function (req, res) {
     
+        studentModel.find({name:"Mughees"}, function (err, docs) {
+            res.send(docs[0].class);
+            console.log(docs[0].class);
+        });
+    
+});
 
 
 
-})
+// app.get("/",function(req,res,next){
+
+//    // res.send("hello world")
+//    studentModel.find(function(err,doc){
+//    if(err){
+//        res.send(err);
+//    }
+//    else{
+//        res.send(doc);
+//    }
+//    })
+       
 app.get("/home",function(req,res,next){
 
     res.send("home");
