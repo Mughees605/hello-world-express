@@ -20,8 +20,6 @@ app.post("/post",function(req,res,next){
 
     var newStudent = new studentModel({
         name : req.body.name,
-        class:req.body.class,
-        rollNum : req.body.rollNum
     })
     newStudent.save(function(err,data){
 
@@ -39,7 +37,7 @@ app.post("/post",function(req,res,next){
 
 app.get('/post', function (req, res) {
     
-        studentModel.find({name:"Mughees"}, function (err, docs) {
+        studentModel.find({}, function (err, docs) {
             res.send(docs);
             console.log(docs);
         });
