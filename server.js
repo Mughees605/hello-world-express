@@ -38,9 +38,7 @@ app.post("/post",function(req,res,next){
 app.get('/post', function (req, res) {
     
         studentModel.find({}, function (err, docs) {
-            res.send(docs.map(function(val,i){
-                 return val.name
-            }));
+            res.send(docs);
             console.log(docs);
         });
     
